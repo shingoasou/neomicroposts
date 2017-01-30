@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119004715) do
+ActiveRecord::Schema.define(version: 20170124004731) do
+
+  create_table "neomicroposts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "neomicroposts", ["user_id", "created_at"], name: "index_neomicroposts_on_user_id_and_created_at"
+  add_index "neomicroposts", ["user_id"], name: "index_neomicroposts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
