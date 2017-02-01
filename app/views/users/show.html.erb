@@ -8,8 +8,9 @@
         </section>
     </aside>
     <div class="col-md-8">
+        <%= render 'follow_form' if logged_in? %>
         <% if @user.neomicroposts.any? %>
-        <h3>Neomicroposts(<%= @user.neomicroposts.count %>)</h3>
+        <h3>Neomicroposts (<%= @user.neomicroposts.count %>)</h3>
         <ol class="neomicroposts">
             <%= render @neomicroposts %>
         </ol>
